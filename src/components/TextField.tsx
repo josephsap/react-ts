@@ -5,10 +5,10 @@ interface Props {
   ok?: boolean // optional prop
 }
 
-export const TextField: React.FC<Props> = () => {
-  const [count, setCount] = useState<number | null | undefined>(5);
+export const TextField = (props: Props) => {
+  // const [count, setCount] = useState<number | null | undefined>(5);
 
-  setCount(null);
+  // setCount(null);
 
   return (
     <div>
