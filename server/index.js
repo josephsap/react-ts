@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const db = require('./db');
-const similarSongRouter = require('./routes/similar-song-router');
+const songRouter = require('./routes/song-router');
 
 const app = express();
 const apiPort = 3001;
@@ -17,10 +17,10 @@ app.get('/', (req, res) => {
   res.send('We out here');
 });
 
-app.use('/api', similarSongRouter);
+app.use('/api', songRouter);
 
 app.listen(apiPort, () => console.log(`Server running on port ${apiPort}`));
 
-
+// need to have a parent ask then child suggestions.
 // brew services start mongodb-community
 // https://medium.com/swlh/how-to-create-your-first-mern-mongodb-express-js-react-js-and-node-js-stack-7e8b20463e66

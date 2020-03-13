@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const suggestedSong = require('./suggested-song');
 
-const SimilarSong = new Schema({
+const Song = new Schema({
   title: {
     type: String,
     required: true
@@ -10,10 +11,7 @@ const SimilarSong = new Schema({
     type: String,
     required: true
   },
-  rating: {
-    type: Number,
-    required: true
-  }
+  suggestedSongs: ['suggestedSong']
 });
 
-module.exports = mongoose.model('similarSongs', SimilarSong);
+module.exports = mongoose.model('song', Song);
