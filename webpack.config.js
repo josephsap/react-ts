@@ -1,11 +1,12 @@
 const webpack = require('webpack');
 const path = require('path');
+const ReactDevToolsIFramePlugin = require('react-dev-tools-iframe-webpack-plugin');
 
 module.exports = {
     entry: "./src/index.tsx",
     output: {
-      filename: "bundle.js",
-      path: path.resolve(__dirname + "/dist"),
+      filename: 'bundle.js',
+      path: path.resolve('/dist'),
       publicPath: "/dist/",
     },
 
@@ -41,7 +42,8 @@ module.exports = {
       ]
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin()
+      new webpack.HotModuleReplacementPlugin(),
+      new ReactDevToolsIFramePlugin()
     ],
 
     // When importing a module whose path matches one of the following, just

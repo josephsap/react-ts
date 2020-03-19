@@ -15,10 +15,9 @@ createSong = (req, res) => {
   song.save()
     .then(() => {
       return res.status(201).json({
-        success: true,
         id: song._id,
-        message: 'Song created',
-        title: song._title
+        title: song._title,
+        description: song._description
       });
     })
     .catch(error => {
@@ -48,9 +47,7 @@ updateSong = async (req, res) => {
     song.save()
     .then(() => {
       return res.status(200).json({
-        success: true,
         song,
-        message: "suggestion added to song"
       });
     })
     .catch(error => {

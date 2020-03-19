@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const suggestedSong = require('./suggested-song');
 
 const Song = new Schema({
   title: {
@@ -10,6 +9,9 @@ const Song = new Schema({
   link: {
     type: String,
     required: true
+  },
+  description: {
+    type: String
   },
   suggestedSongs: ['suggestedSong']
 });
