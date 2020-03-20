@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import API, { SongData } from '../util/api';
+import API, { SongData, SuggestedSongData } from '../util/api';
 
 export interface AllSongs {
+  suggestedSongs: [SuggestedSongData];
   results: SongData[];
+  title: string;
+  _id: string;
 }
 
 const App = () => {
@@ -19,8 +22,33 @@ const App = () => {
     });
   }, []);
 
+  const suggestedSongs = (songSuggestionArray: any[]) => {
+    return (
+      songSuggestionArray.map((suggestion, index) => {
+        return (
+          <li key={index}>
+            <h3>{suggestion.title}</h3>
+            <p>{suggestion.description}</p>
+            <a href={suggestion.link}>Song Link</a>
+          </li>
+        );
+      })
+    )
+  };
+
   return (
-    <p>s9989</p>
+    <div>
+      {songsArray.map(songItem => {
+        return (
+          <div key={songItem._id}>
+            <h2>{songItem.title}</h2>
+            <ul>
+              {suggestedSongs(songItem.suggestedSongs)}
+            </ul>
+          </div>
+        );
+      })}
+    </div>
   );
 };
 

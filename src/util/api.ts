@@ -9,6 +9,12 @@ export interface SongData {
   suggestedSongs?: []
 }
 
+export interface SuggestedSongData {
+  title: string;
+  link: string;
+  description: string;
+}
+
 type UpdateSongData = {
   title: string;
   link: string;

@@ -43,6 +43,7 @@ getSongs = async (req, res) => {
 
 updateSong = async (req, res) => {
   Song.findOne({ _id: req.params.id }, (err, song) => {
+    console.log(req.body, 'rew body')
     song.suggestedSongs.push(req.body);
     song.save()
     .then(() => {
